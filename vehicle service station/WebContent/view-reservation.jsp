@@ -1,3 +1,17 @@
+<!--
+	VEHICLE SERVICE AND FUEL SATATION MANAGEMENT SYSTEM 
+	H.R. Yasith wimukthi
+ 	IT19966922
+ 	Y2S1 2.2
+    OOP
+ -->
+
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.VehicleServiceStation.model.Reservation"%>
+<%@page import="com.VehicleServiceStation.service.ReservationService"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -10,6 +24,12 @@
 </head>
 <body>
 
+<%
+	String uid = (String) session.getAttribute("uid");
+	ReservationService rs = new ReservationService();
+	ArrayList<Reservation> reservations = new ArrayList<>();
+	reservations = rs.getReservationByUID(uid);
+%>
     <div class="main-container">
         <header class="header">
             <button type="button" class="btn btn-outline-danger logout-btn">Logout</button>
@@ -64,6 +84,54 @@
                 </div>
 
                  <div class="reservation-details">
+					
+					<table class="table">
+					
+						<thead class="thead-dark">
+					
+							<tr>
+								<th scope="col">Brand</th>
+								<th scope="col">Edition</th>
+								<th scope="col">Vehicle Model</th>
+								<th scope="col">Body Type</th>
+								<th scope="col">Transmission</th>
+								<th scope="col">Date</th>
+								<th scope="col">Update</th>
+								<th scope="col">Cancel</th>
+								
+							</tr>
+						</thead>
+						
+						<%
+							for (Reservation reservation : reservations){
+						%>
+						<tbody>
+							<tr>
+								<td scope="row"> <%=reservation.getBrand() %></td>
+								<td> <%=reservation.getEdition() %></td>
+								<td> <%=reservation.getVehicleModel() %></td>
+								<td> <%=reservation.getBodyType() %></td>
+								<td> <%=reservation.getTransmission() %></td>
+								<td> <%=reservation.getDate() %></td>
+								<td>
+									<form action="UpdateReservationServlet" method="POST">
+										<input type="hidden" name="resID" value="<%=reservation.getReservationID() %>" />
+										<input type="submit" value="Update" name="update-reservation-btn" id="update-reservation-btn" class="btn btn-outline-success" />
+									</form>
+								</td>
+								
+								<td>
+									<form action="CancelReservationServlet" method="POST">
+										<input type="hidden" name="resID" value="<%=reservation.getReservationID() %>" />
+										<input type="submit" value="Cancel" name="cancel-reservation-btn" id="cancel-reservation-btn" class="btn btn-outline-danger" />
+									</form>
+								</td>
+							</tr>
+						</tbody>	
+							<%
+								}
+							%>
+					</table>
 					
 					
                  </div>   
