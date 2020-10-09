@@ -12,6 +12,7 @@ package com.VehicleServiceStation.model;
 
 public class Reservation {
 	
+	private String vehicleNo;
 	private String reservationID;
 	private String brand;
 	private String vehicleModel;
@@ -26,9 +27,11 @@ public class Reservation {
 	}
 
 	// OVERLOADED CONSTRUCTOR WITHOUT reservationID FIELD
-	public Reservation(String brand, String vehicleModel, String edition, String transmission, String bodyType,
-			String date) {
+	
+	public Reservation(String vehicleNo, String brand, String vehicleModel, String edition, String transmission,
+			String bodyType, String date) {
 		super();
+		this.vehicleNo = vehicleNo;
 		this.brand = brand;
 		this.vehicleModel = vehicleModel;
 		this.edition = edition;
@@ -38,9 +41,11 @@ public class Reservation {
 	}
 
 	// OVERLOADED CONSTRUCTOR WITH ALL FIELDS
-	public Reservation(String reservationID, String brand, String vehicleModel, String edition, String transmission,
-			String bodyType, String date) {
+
+	public Reservation(String vehicleNo, String reservationID, String brand, String vehicleModel, String edition,
+			String transmission, String bodyType, String date) {
 		super();
+		this.vehicleNo = vehicleNo;
 		this.reservationID = reservationID;
 		this.brand = brand;
 		this.vehicleModel = vehicleModel;
@@ -49,10 +54,14 @@ public class Reservation {
 		this.bodyType = bodyType;
 		this.date = date;
 	}
+	
+
 
 	public String getReservationID() {
 		return reservationID;
 	}
+
+
 
 	public void setReservationID(String reservationID) {
 		this.reservationID = reservationID;
@@ -106,15 +115,23 @@ public class Reservation {
 		this.date = date;
 	}
 	
+	
+	public String getVehicleNo() {
+		return vehicleNo;
+	}
+
+	public void setVehicleNo(String vehicleNo) {
+		this.vehicleNo = vehicleNo;
+	}
+
 	//OVERRIDE toString METHOD
+	
 	@Override
 	public String toString() {
-		return "Reservation [reservationID=" + reservationID + ", brand=" + brand + ", vehicleModel=" + vehicleModel
-				+ ", edition=" + edition + ", transmission=" + transmission + ", bodyType=" + bodyType + ", date="
-				+ date + "]";
+		return "Reservation [vehicleNo=" + vehicleNo + ", reservationID=" + reservationID + ", brand=" + brand
+				+ ", vehicleModel=" + vehicleModel + ", edition=" + edition + ", transmission=" + transmission
+				+ ", bodyType=" + bodyType + ", date=" + date + "]";
 	}
-	
-	
-	
+		
 
 }

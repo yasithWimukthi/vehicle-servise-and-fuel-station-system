@@ -90,6 +90,7 @@
 						<thead class="thead-dark">
 					
 							<tr>
+								<th scope="col">Vehicle No</th>
 								<th scope="col">Brand</th>
 								<th scope="col">Edition</th>
 								<th scope="col">Vehicle Model</th>
@@ -107,7 +108,8 @@
 						%>
 						<tbody>
 							<tr>
-								<td scope="row"> <%=reservation.getBrand() %></td>
+								<td scope="row"> <%=reservation.getVehicleNo() %></td>
+								<td > <%=reservation.getBrand() %></td>
 								<td> <%=reservation.getEdition() %></td>
 								<td> <%=reservation.getVehicleModel() %></td>
 								<td> <%=reservation.getBodyType() %></td>

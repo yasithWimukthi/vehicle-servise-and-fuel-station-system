@@ -38,4 +38,7 @@ public class Query {
 	 */
 	
 	public static final String GET_RESERVATION_BY_UID = "SELECT * FROM reservation WHERE userID = ? ;";
+	
+	public static final String GET_RESERVATION_BY_RESERVATION_ID = "SELECT * FROM reservation WHERE reservationID = ? ;";
+	
 }

@@ -18,12 +18,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.VehicleServiceStation.model.Reservation;
+import com.VehicleServiceStation.service.ReservationService;
+
 /**
  * Servlet implementation class UpdateReservationServlet
  */
 @WebServlet("/UpdateReservationServlet")
 public class UpdateReservationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * CREATE RESERVATION MODEL CLASS VARIABLE
+	 */
+	Reservation reservation = new Reservation();
+	
+	/**
+	 * CREATE RESERVATION SERVICE CLASS VARIABLE
+	 */
+	ReservationService reservationService = new ReservationService();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -46,6 +59,11 @@ public class UpdateReservationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		response.setContentType("text/html");
+		
+		/** GET PARAMETERS */
+		String reservationID = request.getParameter("resID");
 		doGet(request, response);
 	}
 

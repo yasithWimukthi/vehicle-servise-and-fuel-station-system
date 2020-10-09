@@ -34,4 +34,18 @@ public interface iReservationService {
 	 * 
 	 * @return ArrayList<Reservation>
 	 */
+	
+	public Reservation getReservationByReservationID(String rid);
+	/**
+	 * 
+	 * @author YASITH WIMUKTHI
+	 * IT 19966922
+	 * 
+	 * RETURN RESERVATION OBJECT FOR GIVEN RESERVATION ID
+	 * 
+	 * @param rid
+	 * 
+	 * 
+	 * @return Reservation OBJECT
+	 */
 }

@@ -76,6 +76,7 @@ public class ReservationService implements iReservationService {
 				reservation.setReservationID(resultSet.getString("reservationID"));
 				reservation.setTransmission(resultSet.getString("transmission"));
 				reservation.setVehicleModel(resultSet.getString("vehicle_model"));
+				reservation.setVehicleNo(resultSet.getString("vehicleNo"));
 				
 				// ADD RESERVATION OBJECT INTO THE ARRAY LIST
 				reservationList.add(reservation);
@@ -97,6 +98,47 @@ public class ReservationService implements iReservationService {
 		
 		return reservationList;
 	}
+
+
 	
+	/**
+	 * 
+	 * getReservationByUID METHOD RETURNS RESERVATION OBJECTS FOR GIVEN USER ID
+	 * 
+	 * @author Yasith wimukthi
+	 * IT19966922
+	 * 
+	 * @param uid
+	 * 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException e
+	 * 
+	 * @return Reservation OBJECT
+	 * 
+	 */
+	
+	@Override
+	public Reservation getReservationByReservationID(String rid) {
+		// TODO Auto-generated method stub
+		
+		/** CREATE RESERVATION OBJECT*/
+		Reservation reservation = new Reservation();
+		
+		try {
+			
+			conn = DBConnectionUtil.getConnection();
+			
+			String sql = Query.GET_RESERVATION_BY_RESERVATION_ID;
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		finally {
+			
+		}
+		
+		
+		return null;
+	}
 	
 }
