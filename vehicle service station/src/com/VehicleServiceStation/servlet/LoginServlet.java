@@ -35,25 +35,34 @@ import com.mysql.cj.Session;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	/*
+	/**
 	 * CREATE User CLASS VARIABLE
 	 */
 	
 	private User user;
 	
-	/*
+	/**
 	 * CREATE USER SERVICE CLASS VARIABLE
 	 */
 	
 	private UserService userService;
+	
+	
        
-    /**
+    @Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+		userService = new UserService();
+	}
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
     public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
-        userService = new UserService();
+        //userService = new UserService();
     }
 
 	/**

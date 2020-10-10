@@ -12,6 +12,8 @@
 package com.VehicleServiceStation.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,27 +26,41 @@ import com.VehicleServiceStation.service.ReservationService;
 /**
  * Servlet implementation class UpdateReservationServlet
  */
-@WebServlet("/UpdateReservationServlet")
-public class UpdateReservationServlet extends HttpServlet {
+@WebServlet("/EditReservationServlet")
+public class EditReservationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * CREATE RESERVATION MODEL CLASS VARIABLE
 	 */
-	Reservation reservation = new Reservation();
+	private Reservation reservation;
 	
 	/**
 	 * CREATE RESERVATION SERVICE CLASS VARIABLE
 	 */
-	ReservationService reservationService = new ReservationService();
+	private ReservationService reservationService ;
+	
+	
        
-    /**
+    @Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+		reservation = new Reservation();
+		reservationService = new ReservationService();
+	}
+
+
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateReservationServlet() {
+    public EditReservationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -64,7 +80,18 @@ public class UpdateReservationServlet extends HttpServlet {
 		
 		/** GET PARAMETERS */
 		String reservationID = request.getParameter("resID");
-		doGet(request, response);
+		
+		// CALL getReservationByReservationID FUNCTION IN THE ReservationService CLASS
+		reservation = reservationService.getReservationByReservationID(reservationID);
+		
+		request.setAttribute("reservation",reservation );
+		
+		//DIRECT TO THE update-reservation.jsp PAGE
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/update-reservation.jsp");
+		dispatcher.forward(request, response);
+		
+		
+		//doGet(request, response);
 	}
 
 }

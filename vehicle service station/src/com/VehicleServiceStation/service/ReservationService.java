@@ -44,7 +44,7 @@ public class ReservationService implements iReservationService {
 	 * @param uid
 	 * 
 	 * @throws SQLException
-	 * @throws ClassNotFoundException e
+	 * @throws ClassNotFoundException 
 	 * 
 	 * @return ArrayList<Reservation>
 	 * 
@@ -111,7 +111,7 @@ public class ReservationService implements iReservationService {
 	 * @param uid
 	 * 
 	 * @throws SQLException
-	 * @throws ClassNotFoundException e
+	 * @throws ClassNotFoundException 
 	 * 
 	 * @return Reservation OBJECT
 	 * 
@@ -129,16 +129,35 @@ public class ReservationService implements iReservationService {
 			conn = DBConnectionUtil.getConnection();
 			
 			String sql = Query.GET_RESERVATION_BY_RESERVATION_ID;
+			
+			preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setString(QueryConstants.COLUMN_ONE, rid);
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				reservation.setReservationID(resultSet.getString("reservationID"));
+				reservation.setBodyType(resultSet.getString("body_type"));
+				reservation.setBrand(resultSet.getString("vihicle_brand"));
+				reservation.setDate(resultSet.getString("date"));
+				reservation.setEdition(resultSet.getString("edition"));
+				reservation.setTransmission(resultSet.getString("transmission"));
+				reservation.setVehicleModel(resultSet.getString("vehicle_model"));
+				reservation.setVehicleNo(resultSet.getString("vehicleNo"));
+			}
 		}
-		catch (Exception e) {
+		catch (SQLException | ClassNotFoundException  e ) {
 			// TODO: handle exception
+			e.printStackTrace();
+			logger.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
-			
+			//CLOSE CONNECTION
+			DBConnectionUtil.closeConnection(preparedStatement, conn);
 		}
 		
 		
-		return null;
+		return reservation;
 	}
 	
 }

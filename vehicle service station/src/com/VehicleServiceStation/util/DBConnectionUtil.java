@@ -25,6 +25,9 @@ import java.util.logging.Level;
 
 public class DBConnectionUtil extends DBConnProperty {
 	
+	/**
+	 * USED SIGLETON DESIGN PATTERN
+	 */
 	private static Connection conn;
 	
 	private DBConnectionUtil() {

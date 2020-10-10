@@ -116,7 +116,7 @@
 								<td> <%=reservation.getTransmission() %></td>
 								<td> <%=reservation.getDate() %></td>
 								<td>
-									<form action="UpdateReservationServlet" method="POST">
+									<form action="EditReservationServlet" method="POST">
 										<input type="hidden" name="resID" value="<%=reservation.getReservationID() %>" />
 										<input type="submit" value="Update" name="update-reservation-btn" id="update-reservation-btn" class="btn btn-outline-success" />
 									</form>
