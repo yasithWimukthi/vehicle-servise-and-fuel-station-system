@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
+
 import com.VehicleServiceStation.model.Reservation;
 import com.VehicleServiceStation.util.DBConnectionUtil;
 import com.VehicleServiceStation.util.Query;
@@ -159,5 +161,63 @@ public class ReservationService implements iReservationService {
 		
 		return reservation;
 	}
+
 	
+	/**
+	 * 
+	 * updateReservation METHOD UPDATES RESERVATION OF GIVEN RESERVATION ID
+	 * 
+	 * @author Yasith wimukthi
+	 * IT19966922
+	 * 
+	 * @param rid,vno,brand,model,edition,bodyTpye,transmission,date
+	 * 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException 
+	 * 
+	 * @return RETURN TRUE IF UPDATE SUCCESSFULLY
+	 * 
+	 */
+
+	@Override
+	public boolean updateReservation(String rid, String vno, String brand, String model, String edition,
+			String bodyTpye, String transmission, String date) {
+		// TODO Auto-generated method stub
+		
+		try {
+			
+			conn = DBConnectionUtil.getConnection();
+			
+			String sql = Query.UPDATE_RESERVATION;
+			
+			preparedStatement = conn.prepareStatement(sql);
+			
+			preparedStatement.setString(QueryConstants.COLUMN_ONE,vno );
+			preparedStatement.setString(QueryConstants.COLUMN_TWO, brand);
+			preparedStatement.setString(QueryConstants.COLUMN_THREE, model);
+			preparedStatement.setString(QueryConstants.COLUMN_FOUR, edition);
+			preparedStatement.setString(QueryConstants.COLUMN_FIVE, transmission);
+			preparedStatement.setString(QueryConstants.COLUMN_SIX, bodyTpye);
+			preparedStatement.setString(QueryConstants.COLUMN_SEVEN, date);
+			preparedStatement.setString(QueryConstants.COLUMN_EIGTH, "1");
+			
+			preparedStatement.execute();
+			
+			
+		}
+		catch (SQLException | ClassNotFoundException  e ) {
+			// TODO: handle exception
+			e.printStackTrace();
+			logger.log(Level.SEVERE, e.getMessage());
+			return false;
+		}
+		finally {
+			//CLOSE CONNECTION
+			DBConnectionUtil.closeConnection(preparedStatement, conn);
+		}
+		
+		return true;
+	}
+
+
 }

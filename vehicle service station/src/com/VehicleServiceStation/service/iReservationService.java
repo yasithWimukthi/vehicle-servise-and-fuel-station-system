@@ -48,4 +48,19 @@ public interface iReservationService {
 	 * 
 	 * @return Reservation OBJECT
 	 */
+	
+	public boolean updateReservation(String rid,String vno,String brand,String model,String edition,String bodyTpye,String transmission,String date);
+	/**
+	 * 
+	 * @author YASITH WIMUKTHI
+	 * IT 19966922
+	 * 
+	 * UPDATE RESERVATION OF GIVEN RESERVATION ID
+	 * 
+	 * @param rid,vno,brand,model,edition,bodyTpye,transmission,date
+	 * 
+	 * 
+	 * @return RETURN TRUE IF UPDATE SUCCESSFULLY
+	 */
+	
 }
