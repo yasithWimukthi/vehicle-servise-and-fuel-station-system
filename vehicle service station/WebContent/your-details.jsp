@@ -27,7 +27,9 @@
 %>
     <div class="main-container">
         <header class="header">
-            <button type="button" class="btn btn-outline-danger logout-btn">Logout</button>
+            <form action="LogoutServlet" method="POST">
+            	<button type="submit" class="btn btn-outline-danger logout-btn">Logout</button>
+            </form>
         </header>
 
         <div class="content">

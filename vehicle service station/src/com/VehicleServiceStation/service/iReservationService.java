@@ -49,7 +49,7 @@ public interface iReservationService {
 	 * @return Reservation OBJECT
 	 */
 	
-	public boolean updateReservation(String rid,String vno,String brand,String model,String edition,String bodyTpye,String transmission,String date);
+	public boolean updateReservation(String rid,String vno,String brand,String model,String edition,String bodyTpye,String transmission,String date,String fuelType);
 	/**
 	 * 
 	 * @author YASITH WIMUKTHI
@@ -57,10 +57,23 @@ public interface iReservationService {
 	 * 
 	 * UPDATE RESERVATION OF GIVEN RESERVATION ID
 	 * 
-	 * @param rid,vno,brand,model,edition,bodyTpye,transmission,date
+	 * @param rid,vno,brand,model,edition,bodyTpye,transmission,date,fuelType
 	 * 
 	 * 
 	 * @return RETURN TRUE IF UPDATE SUCCESSFULLY
 	 */
 	
+	public boolean deleteReservation(String rid);
+	/**
+	 * 
+	 * @author YASITH WIMUKTHI
+	 * IT 19966922
+	 * 
+	 * DELETE RESERVATION OF GIVEN RESERVATION ID
+	 * 
+	 * @param RESERVATION ID
+	 * 
+	 * 
+	 * @return RETURN TRUE IF DELETE SUCCESSFULLY
+	 */
 }

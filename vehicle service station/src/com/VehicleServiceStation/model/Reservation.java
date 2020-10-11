@@ -20,6 +20,7 @@ public class Reservation {
 	private String transmission;
 	private String bodyType;
 	private String date;
+	private String fuelType;
 	
 	//DEFAULT CONSTRUCTOR
 	public Reservation() {
@@ -27,9 +28,8 @@ public class Reservation {
 	}
 
 	// OVERLOADED CONSTRUCTOR WITHOUT reservationID FIELD
-	
 	public Reservation(String vehicleNo, String brand, String vehicleModel, String edition, String transmission,
-			String bodyType, String date) {
+			String bodyType, String date, String fuelType) {
 		super();
 		this.vehicleNo = vehicleNo;
 		this.brand = brand;
@@ -38,12 +38,12 @@ public class Reservation {
 		this.transmission = transmission;
 		this.bodyType = bodyType;
 		this.date = date;
+		this.fuelType = fuelType;
 	}
 
 	// OVERLOADED CONSTRUCTOR WITH ALL FIELDS
-
 	public Reservation(String vehicleNo, String reservationID, String brand, String vehicleModel, String edition,
-			String transmission, String bodyType, String date) {
+			String transmission, String bodyType, String date, String fuelType) {
 		super();
 		this.vehicleNo = vehicleNo;
 		this.reservationID = reservationID;
@@ -53,15 +53,13 @@ public class Reservation {
 		this.transmission = transmission;
 		this.bodyType = bodyType;
 		this.date = date;
+		this.fuelType = fuelType;
 	}
-	
 
 
 	public String getReservationID() {
 		return reservationID;
 	}
-
-
 
 	public void setReservationID(String reservationID) {
 		this.reservationID = reservationID;
@@ -123,15 +121,25 @@ public class Reservation {
 	public void setVehicleNo(String vehicleNo) {
 		this.vehicleNo = vehicleNo;
 	}
+	
+	
+	
+	public String getFuelType() {
+		return fuelType;
+	}
+
+	public void setFuelType(String fuelType) {
+		this.fuelType = fuelType;
+	}
+
 
 	//OVERRIDE toString METHOD
-	
+
 	@Override
 	public String toString() {
 		return "Reservation [vehicleNo=" + vehicleNo + ", reservationID=" + reservationID + ", brand=" + brand
 				+ ", vehicleModel=" + vehicleModel + ", edition=" + edition + ", transmission=" + transmission
-				+ ", bodyType=" + bodyType + ", date=" + date + "]";
+				+ ", bodyType=" + bodyType + ", date=" + date + ", fuelType=" + fuelType + "]";
 	}
-		
-
+	
 }

@@ -8,42 +8,52 @@
  *
  */
 
-
 package com.VehicleServiceStation.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.VehicleServiceStation.model.Reservation;
 import com.VehicleServiceStation.service.ReservationService;
 
 /**
- * Servlet implementation class CancelReservationServlet
+ * Servlet implementation class RemoveReservationServlet
  */
-@WebServlet("/CancelReservationServlet")
-public class CancelReservationServlet extends HttpServlet {
+@WebServlet("/RemoveReservationServlet")
+public class RemoveReservationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	/** CREATE ReservationSevice CLASS VARIABLE*/
-	private ReservationService reservationSevice;
+	/**
+	 * CREATE RESERVATION MODEL CLASS VARIABLE
+	 */
+	private Reservation reservation;
 	
-	/** INITIALIZE CLASS VARIABLES*/
+	/**
+	 * CREATE RESERVATION SERVICE CLASS VARIABLE
+	 */
+	private ReservationService reservationService ;
+	
+	
+	
+       
     @Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
-		reservationSevice = new ReservationService();
+		reservation = new Reservation();
+		reservationService = new ReservationService();
 	}
 
 	/**
      * @see HttpServlet#HttpServlet()
      */
-    public CancelReservationServlet() {
+    public RemoveReservationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -62,36 +72,21 @@ public class CancelReservationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		/** GET PARAMETERS*/
+		response.setContentType("text/html");
+		
+		/** GET PARAMETERS */
 		String reservationID = request.getParameter("resID");
 		
-		//CREATE PRINT WRITER FOR GIVING JAVASCRIPT ALERTS
-		PrintWriter out = response.getWriter();
+		// CALL getReservationByReservationID FUNCTION IN THE ReservationService CLASS
+		reservation = reservationService.getReservationByReservationID(reservationID);
 		
-		/** Confirm before update*/
-		out.println("<script type=\"text/javascript\">");
-		out.println("let retVal = confirm(\"Do you want to cancel the reservation ?\");");
-		out.println("if(!retVal){"
-				+ "location='your-details.jsp'};");
-		out.println("</script>");
+		request.setAttribute("reservation",reservation );
 		
-		boolean isDelete = reservationSevice.deleteReservation(reservationID);
+		//DIRECT TO THE update-reservation.jsp PAGE
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cancel-reservation.jsp");
+		dispatcher.forward(request, response);
 		
-		if(isDelete) {
-			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Cancel the reservation Successfully !');");
-			out.println("location='view-reservation.jsp';");
-			out.println("</script>");
-		}
-		
-		else {
-			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Reservation cancel is not completed !');");
-			out.println("location='view-reservation.jsp';");
-			out.println("</script>");
-		}
-		
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }

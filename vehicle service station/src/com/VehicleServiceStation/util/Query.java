@@ -41,6 +41,8 @@ public class Query {
 	
 	public static final String GET_RESERVATION_BY_RESERVATION_ID = "SELECT * FROM reservation WHERE reservationID = ? ;";
 	
-	public static final String UPDATE_RESERVATION = "UPDATE reservation SET vehicleNo = ?, vihicle_brand = ?, vehicle_model = ?, edition = ?, transmission = ?, body_type = ?, date = ? WHERE reservationID = ? ; " ;
+	public static final String UPDATE_RESERVATION = "UPDATE reservation SET vehicleNo = ?, vihicle_brand = ?, vehicle_model = ?, edition = ?, transmission = ?, body_type = ?, date = ? ,fuel_type = ? WHERE reservationID = ? ; " ;
+	
+	public static final String DELETE_RESERVATION = "DELETE FROM reservation WHERE reservationID = ? ;" ;
 	
 }

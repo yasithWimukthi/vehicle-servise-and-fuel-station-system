@@ -79,6 +79,7 @@ public class ReservationService implements iReservationService {
 				reservation.setTransmission(resultSet.getString("transmission"));
 				reservation.setVehicleModel(resultSet.getString("vehicle_model"));
 				reservation.setVehicleNo(resultSet.getString("vehicleNo"));
+				reservation.setFuelType(resultSet.getString("fuel_type"));
 				
 				// ADD RESERVATION OBJECT INTO THE ARRAY LIST
 				reservationList.add(reservation);
@@ -146,6 +147,7 @@ public class ReservationService implements iReservationService {
 				reservation.setTransmission(resultSet.getString("transmission"));
 				reservation.setVehicleModel(resultSet.getString("vehicle_model"));
 				reservation.setVehicleNo(resultSet.getString("vehicleNo"));
+				reservation.setFuelType(resultSet.getString("fuel_type"));
 			}
 		}
 		catch (SQLException | ClassNotFoundException  e ) {
@@ -181,7 +183,7 @@ public class ReservationService implements iReservationService {
 
 	@Override
 	public boolean updateReservation(String rid, String vno, String brand, String model, String edition,
-			String bodyTpye, String transmission, String date) {
+			String bodyTpye, String transmission, String date,String fuelType) {
 		// TODO Auto-generated method stub
 		
 		try {
@@ -199,7 +201,8 @@ public class ReservationService implements iReservationService {
 			preparedStatement.setString(QueryConstants.COLUMN_FIVE, transmission);
 			preparedStatement.setString(QueryConstants.COLUMN_SIX, bodyTpye);
 			preparedStatement.setString(QueryConstants.COLUMN_SEVEN, date);
-			preparedStatement.setString(QueryConstants.COLUMN_EIGTH, rid);
+			preparedStatement.setString(QueryConstants.COLUMN_EIGTH, fuelType);
+			preparedStatement.setString(QueryConstants.COLUMN_NINE, rid);
 			
 			preparedStatement.execute();
 			
@@ -220,4 +223,50 @@ public class ReservationService implements iReservationService {
 	}
 
 
+	/**
+	 * 
+	 * deleteReservation METHOD DELETES RESERVATION OF GIVEN RESERVATION ID
+	 * 
+	 * @author Yasith wimukthi
+	 * IT19966922
+	 * 
+	 * @param RESERVATION ID
+	 * 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException 
+	 * 
+	 * @return RETURN TRUE IF DELETE SUCCESSFULLY
+	 * 
+	 */
+	
+	@Override
+	public boolean deleteReservation(String rid) {
+		// TODO Auto-generated method stub
+		try {
+			
+			conn = DBConnectionUtil.getConnection();
+			
+			String sql = Query.DELETE_RESERVATION;
+			
+			preparedStatement = conn.prepareStatement(sql);
+			
+			preparedStatement.setString(QueryConstants.COLUMN_ONE, rid);
+			
+			preparedStatement.execute();
+			
+		}
+		catch (SQLException | ClassNotFoundException  e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			logger.log(Level.SEVERE, e.getMessage());
+			return false;
+		}
+		finally {
+			
+			//CLOSE CONNECTION
+			DBConnectionUtil.closeConnection(preparedStatement, conn);
+		}
+		return true;
+	}
+	
 }

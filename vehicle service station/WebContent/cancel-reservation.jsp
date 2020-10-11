@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Update Reservation</title>
+	<title>Cancel Reservation</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link  rel="stylesheet" href="css/main.css">
 </head>
@@ -34,6 +34,7 @@
 	String fuelType = reservation.getFuelType();
 	
 %>
+
 	    <div class="main-container">
         <header class="header">
             <form action="LogoutServlet" method="POST">
@@ -91,100 +92,61 @@
 
                  <div class="update-reservation">
 
-                    <form action="UpdateReservationServlet" method="POST">
+                    <form action="CancelReservationServlet" method="POST">
 
                         <div class="form-group row">
                           <label for="vehicle-number" class="col-sm-2 col-form-label">Vehicle number</label>
                           <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-lg" value="<%=vehicleNumber %>" id="vehicle-number" name="vehicle-number" required>
+                            <input type="text" class="form-control form-control-lg" value="<%=vehicleNumber %>" id="vehicle-number" name="vehicle-number" readonly="readonly">
                           </div>
                         </div>
 
                         <div class="form-group row">
                           <label for="brand" class="col-sm-2 col-form-label">brand</label>
                           <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-lg" value="<%=brand %>" id="brand" name="brand" required>
+                            <input type="text" class="form-control form-control-lg" value="<%=brand %>" id="brand" name="brand" readonly="readonly">
                           </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="vehicle model" class="col-sm-2 col-form-label">Vehicle Model</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control form-control-lg" value="<%=vehicleModel %>" id="vehicle model" name="vehicle model" required>
+                              <input type="text" class="form-control form-control-lg" value="<%=vehicleModel %>" id="vehicle model" name="vehicle model" readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="vehicle edition" class="col-sm-2 col-form-label">Vehicle Edition</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control form-control-lg" value="<%=edition %>" id="vehicle edition" name="vehicle edition" required>
+                              <input type="text" class="form-control form-control-lg" value="<%=edition %>" id="vehicle edition" name="vehicle edition" readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="body-type" class="col-sm-2 col-form-label">Body Type</label>
-                            <select id="body-type" class="form-control form-control-lg col-sm-4" name="body type" required>
-                                <option value="SEDAN">SEDAN</option>
-                                <option value="COUPE">COUPE</option>
-                                <option value="SPORTS">SPORTS</option>
-                                <option value="STATION WAGON">STATION WAGON</option>
-                                <option value="HATCHBACK">HATCHBACK</option>
-                                <option value="CONVERTIBLE">CONVERTIBLE</option>
-                                <option value="SUV">SPORT-UTILITY VEHICLE (SUV)</option>
-                                <option value="MINIVAN">MINIVAN</option>
-                                <option value="OTHER">OTHER</option>
-                            </select>
+                            <label for="body type" class="col-sm-2 col-form-label">Body Type</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control form-control-lg" value="<%=bodyType %>" id="body type" name="body type" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="transmission" class="col-sm-2 col-form-label">Transmission</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control form-control-lg" value="<%=transmission %>" id="transmission" name="transmission" readonly="readonly">
+                            </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="transmission" class="col-sm-2 col-form-label">Transmission</label>
-                            <select id="body-type" class="form-control form-control-lg col-sm-4" name="transmission" required>
-                                <option value="Auto">Auto</option>
-                                <option value="Manual">Manual</option>
-                            </select>
-                        </div>
-
-                        <fieldset class="form-group" >
-                          <div class="row">
-                            <legend class="col-form-label col-sm-2 pt-0">Fuel Type</legend>
-                            <div class="col-sm-10">
-
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="fuel" id="Petrol" value="Petrol" checked required="required">
-                                <label class="form-check-label" for="Petrol">
-                                    Petrol
-                                </label>
-                              </div>
-
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="fuel" id="Diesel" value="Diesel" required="required">
-                                <label class="form-check-label" for="Diesel">
-                                    Diesel
-                                </label>
-                              </div>
-
-                              <div class="form-check disabled">
-                                <input class="form-check-input" type="radio" name="fuel" id="Electric" value="Electric" required="required" >
-                                <label class="form-check-label" for="Electric">
-                                    Electric
-                                </label>
-                              </div>
-
-                              <div class="form-check disabled">
-                                <input class="form-check-input" type="radio" name="fuel" id="Hybrid" value="Hybrid" required="required">
-                                <label class="form-check-label" for="Hybrid">
-                                    Hybrid
-                                </label>
-                              </div>
-
+                            <label for="Fuel" class="col-sm-2 col-form-label">Fuel Type</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control form-control-lg" value="<%=fuelType %>" id="Fuel" name="Fuel" readonly="readonly">
                             </div>
-                          </div>
-                        </fieldset>
+                        </div>
 
                         <div class="form-group row">
                             <label for="date" class="col-2 col-form-label">Date and time</label>
                             <div class="col-6">
-                              <input class="form-control form-control-lg" type="datetime-local" value="<%=date %>"  id="date" name="date" required="required">
+                              <input class="form-control form-control-lg" type="text" value="<%=date %>"  id="date" name="date" readonly="readonly">
                             </div>
                           </div>
                           
@@ -192,11 +154,10 @@
 
                         <div class="form-group row">
                           <div class="col-sm-6">
-                            <button type="submit" class="btn btn-outline-success btn-lg">Update</button>
+                            <button type="submit" class="btn btn-outline-danger btn-lg">Cancel Reservation</button>
                           </div>
                         </div>
                       </form>
-
 
                  </div>   
 
@@ -204,6 +165,5 @@
 
         </div>
     </div>
-	
 </body>
 </html>

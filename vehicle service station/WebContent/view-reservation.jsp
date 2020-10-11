@@ -32,7 +32,9 @@
 %>
     <div class="main-container">
         <header class="header">
-            <button type="button" class="btn btn-outline-danger logout-btn">Logout</button>
+        	<form action="LogoutServlet" method="POST">
+            	<button type="submit" class="btn btn-outline-danger logout-btn">Logout</button>
+            </form>
         </header>
 
         <div class="content">
@@ -95,6 +97,7 @@
 								<th scope="col">Edition</th>
 								<th scope="col">Vehicle Model</th>
 								<th scope="col">Body Type</th>
+								<th scope="col">Fuel Type</th>
 								<th scope="col">Transmission</th>
 								<th scope="col">Date</th>
 								<th scope="col">Update</th>
@@ -113,6 +116,7 @@
 								<td> <%=reservation.getEdition() %></td>
 								<td> <%=reservation.getVehicleModel() %></td>
 								<td> <%=reservation.getBodyType() %></td>
+								<td> <%=reservation.getFuelType() %></td>
 								<td> <%=reservation.getTransmission() %></td>
 								<td> <%=reservation.getDate() %></td>
 								<td>
@@ -123,7 +127,7 @@
 								</td>
 								
 								<td>
-									<form action="CancelReservationServlet" method="POST">
+									<form action="RemoveReservationServlet" method="POST">
 										<input type="hidden" name="resID" value="<%=reservation.getReservationID() %>" />
 										<input type="submit" value="Cancel" name="cancel-reservation-btn" id="cancel-reservation-btn" class="btn btn-outline-danger" />
 									</form>

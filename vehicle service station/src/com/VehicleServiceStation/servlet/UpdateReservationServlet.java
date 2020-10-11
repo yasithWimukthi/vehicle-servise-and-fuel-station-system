@@ -73,6 +73,7 @@ public class UpdateReservationServlet extends HttpServlet {
 		String bodyType = request.getParameter("body type");
 		String transmission = request.getParameter("transmission");
 		String date = request.getParameter("date");
+		String fuel = request.getParameter("fuel");
 		
 		//CREATE PRINT WRITER FOR GIVING JAVASCRIPT ALERTS
 		PrintWriter out = response.getWriter();
@@ -84,7 +85,7 @@ public class UpdateReservationServlet extends HttpServlet {
 				+ "location='your-details.jsp'};");
 		out.println("</script>");
 		
-		boolean isSuccess = reservationSevice.updateReservation(reservationID, vehicleNumber, brand, model, edition, bodyType, transmission, date);
+		boolean isSuccess = reservationSevice.updateReservation(reservationID, vehicleNumber, brand, model, edition, bodyType, transmission, date,fuel);
 		
 		if(isSuccess) {
 			out.println("<script type=\"text/javascript\">");
