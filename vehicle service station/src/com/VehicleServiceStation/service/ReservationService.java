@@ -199,7 +199,7 @@ public class ReservationService implements iReservationService {
 			preparedStatement.setString(QueryConstants.COLUMN_FIVE, transmission);
 			preparedStatement.setString(QueryConstants.COLUMN_SIX, bodyTpye);
 			preparedStatement.setString(QueryConstants.COLUMN_SEVEN, date);
-			preparedStatement.setString(QueryConstants.COLUMN_EIGTH, "1");
+			preparedStatement.setString(QueryConstants.COLUMN_EIGTH, rid);
 			
 			preparedStatement.execute();
 			
