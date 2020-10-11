@@ -51,6 +51,7 @@ body{
 .sidebar{
     background-color: #333;
     flex: 0 0 19%;
+    marging-right : 20px;
 }
 
 .main-content{

@@ -59,13 +59,13 @@
                 </ul>
 
                 <ul class="side-nav">
-                    <li class="side-nav__item active">
+                    <li class="side-nav__item ">
                         <a href="#" class="side-nav__link">Update Reservation</a>
                     </li>
                 </ul>
 
                 <ul class="side-nav">
-                    <li class="side-nav__item">
+                    <li class="side-nav__item active">
                         <a href="#" class="side-nav__link">Delete Reservation</a>
                     </li>
                 </ul>

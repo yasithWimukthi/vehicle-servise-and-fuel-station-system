@@ -268,5 +268,63 @@ public class ReservationService implements iReservationService {
 		}
 		return true;
 	}
+
+	/**
+	 * 
+	 * saveReservation METHOD STORES RESERVATION DETAILS INTO THE DATABASE
+	 * 
+	 * @author Yasith wimukthi
+	 * IT19966922
+	 * 
+	 * @param vno,brand,model,edition,bodyTpye,transmission,date,fuelType,uid
+	 * 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException 
+	 * 
+	 * @return RETURN TRUE IF SAVE DETAILS SUCCESSFULLY
+	 * 
+	 */
+
+	@Override
+	public boolean saveReservation(String vno, String brand, String model, String edition, String bodyTpye,
+			String transmission, String date, String fuelType,String uid) {
+		// TODO Auto-generated method stub
+		
+		try {
+			
+			conn = DBConnectionUtil.getConnection();
+			
+			String sql = Query.SAVE_RESERVATION;
+			
+			preparedStatement = conn.prepareStatement(sql);
+			
+			preparedStatement.setString(QueryConstants.COLUMN_ONE, brand);
+			preparedStatement.setString(QueryConstants.COLUMN_TWO, model);
+			preparedStatement.setString(QueryConstants.COLUMN_THREE, edition);
+			preparedStatement.setString(QueryConstants.COLUMN_FOUR, transmission);
+			preparedStatement.setString(QueryConstants.COLUMN_FIVE, bodyTpye);
+			preparedStatement.setString(QueryConstants.COLUMN_SIX, date);
+			preparedStatement.setString(QueryConstants.COLUMN_SEVEN, uid);
+			preparedStatement.setString(QueryConstants.COLUMN_EIGTH, fuelType);
+			preparedStatement.setString(QueryConstants.COLUMN_NINE, vno);
+			
+			preparedStatement.execute();
+			
+		}
+		catch (SQLException | ClassNotFoundException  e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			logger.log(Level.SEVERE, e.getMessage());
+			return false;
+		}
+		finally {
+			
+			//CLOSE CONNECTION
+			DBConnectionUtil.closeConnection(preparedStatement, conn);
+		}
+		return true;
+	}
+	
+	
 	
 }

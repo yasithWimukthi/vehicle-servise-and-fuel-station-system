@@ -116,7 +116,7 @@ public class LoginServlet extends HttpServlet {
 			else if(user.getType().equalsIgnoreCase("user")) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Successfully logged in user!');");
-				out.println("location='your-details.jsp';");
+				out.println("location='home.jsp';");
 				out.println("</script>");
 			}
 			

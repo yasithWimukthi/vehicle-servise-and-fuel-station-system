@@ -1,0 +1,60 @@
+@charset "ISO-8859-1";
+	/* 
+	 * H.R. Yasith wimukthi
+ 	 * IT19966922
+	*/ 
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #777;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.reservation-form{
+    width: 900px;
+    background: #4CA1AF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    color:black;
+    font-size: 16px;
+    -webkit-box-shadow: 14px 11px 29px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px 11px 29px 2px rgba(0,0,0,0.75);
+    box-shadow: 14px 11px 29px 2px rgba(0,0,0,0.75);
+}
+
+#body-type{
+    margin-left: 15px;
+}
+
+.transmission{
+    margin-right: 15px;
+}
+
+.form-check-label{
+    margin-left: 15px;
+    cursor: pointer;
+}

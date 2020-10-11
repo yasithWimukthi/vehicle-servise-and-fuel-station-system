@@ -76,4 +76,18 @@ public interface iReservationService {
 	 * 
 	 * @return RETURN TRUE IF DELETE SUCCESSFULLY
 	 */
+	
+	public boolean saveReservation(String vno,String brand,String model,String edition,String bodyTpye,String transmission,String date,String fuelType,String uid);
+	/**
+	 * 
+	 * @author YASITH WIMUKTHI
+	 * IT 19966922
+	 * 
+	 * SAVE RESERVATION DETAILS
+	 * 
+	 * @param vno,brand,model,edition,bodyTpye,transmission,date,fuelType,uid
+	 * 
+	 * 
+	 * @return RETURN TRUE IF SAVE DETAILS SUCCESSFULLY
+	 */
 }

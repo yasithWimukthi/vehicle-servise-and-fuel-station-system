@@ -45,4 +45,6 @@ public class Query {
 	
 	public static final String DELETE_RESERVATION = "DELETE FROM reservation WHERE reservationID = ? ;" ;
 	
+	public static final String SAVE_RESERVATION = "insert into reservation (vihicle_brand,vehicle_model,edition,transmission,body_type,date,userID,fuel_type,vehicleNo)values(?,?,?,?,?,?,?,?,?);" ;
+	
 }
