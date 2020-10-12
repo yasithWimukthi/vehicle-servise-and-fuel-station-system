@@ -11,9 +11,14 @@
 
 package com.VehicleServiceStation.service;
 
+import java.util.logging.Logger;
+
 import com.VehicleServiceStation.model.User;
 
 public interface iUserService {
+	
+	/** INITIALIZE LOGGER*/
+	public static final Logger logger = Logger.getLogger(iUserService.class.getName());
 	
 	/**
 	 * getCurrentUser RETURNS CURRENT LOGGED USER

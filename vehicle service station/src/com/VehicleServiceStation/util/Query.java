@@ -47,4 +47,9 @@ public class Query {
 	
 	public static final String SAVE_RESERVATION = "insert into reservation (vihicle_brand,vehicle_model,edition,transmission,body_type,date,userID,fuel_type,vehicleNo)values(?,?,?,?,?,?,?,?,?);" ;
 	
+	
+	/**
+	 * QUERIES FOR FEEDBACK DETAILS MANIPULATION
+	 */
+	public static final String SAVE_FEEDBACK = "INSERT INTO feedback(name,email,message) VALUES (?,?,?); " ;
 }

@@ -20,7 +20,7 @@ public interface iFeedbackService {
 	// INITIALIZE LOGGER
 	public static final Logger logger = Logger.getLogger(iFeedbackService.class.getName());
 	
-	public void saveFeedback(Feedback feedback);
+	public boolean saveFeedback(String name,String email,String message);
 	
 	/**
 	 * saveFeedback() method stores user feedbacks in the DB.
@@ -28,16 +28,7 @@ public interface iFeedbackService {
 	 * @author Yasith wimukthi
 	 * IT19966922 
 	 * 
-	 * @param feedback
+	 * @param name , email , message
 	 */
-	
-	public ArrayList<Feedback> viewFeedback();
-	
-	/**
-	 * viewFeedback() method retrieves user feedbacks from the DB.
-	 *
-	 * @author 
-	 * IT 
-	 * 
-	 */
+
 }
