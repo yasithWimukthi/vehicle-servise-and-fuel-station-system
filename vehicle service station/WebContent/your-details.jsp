@@ -20,11 +20,14 @@
 </head>
 <body>
 
-<%
+  <%
 	UserService userService = new UserService();
 	String uid = (String) session.getAttribute("uid");
 	User user = userService.getUserByID(uid);
-%>
+%> 
+
+	<jsp:include page="header.jsp"></jsp:include>
+
     <div class="main-container">
         <header class="header">
             <form action="LogoutServlet" method="POST">
@@ -59,6 +62,12 @@
                         <a href="#" class="side-nav__link">Delete Reservation</a>
                     </li>
                 </ul>
+                
+                <ul class="side-nav">
+                    <li class="side-nav__item ">
+                        <a href="#" class="side-nav__link">Update User</a>
+                    </li>
+                </ul>
 
             </nav>
 
@@ -82,28 +91,34 @@
 
                  <div class="details">
 
-                    <div class="alert alert-primary details-box" role="alert">
+                    <div class="alert alert-primary details-box" role="alert" style="font-size: 16px;">
                         First name : <%= user.getFname() %>
                     </div>
 
-                    <div class="alert alert-primary details-box" role="alert">
+                    <div class="alert alert-primary details-box" role="alert" style="font-size: 16px;">
                         Last name : <%= user.getLname() %>
                     </div>
 
-                    <div class="alert alert-primary details-box" role="alert">
+                    <div class="alert alert-primary details-box" role="alert" style="font-size: 16px;">
                         Email : <%= user.getEmail() %>
                     </div>
 
-                    <div class="alert alert-primary details-box" role="alert">
+                    <div class="alert alert-primary details-box" role="alert" style="font-size: 16px;">
                         Mobile number : <%= user.getPhoneNo() %>
                     </div>
 
 
-                 </div>   
+                 </div>  
+                 
+                 <div class="update-user" >
+                     <a href="update-user.jsp" class="btn btn-outline-success btn-lg" style="margin-left: 350px;">Update details</a>
+                 </div >
 
             </main>
 
         </div>
     </div>
+    
+     <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

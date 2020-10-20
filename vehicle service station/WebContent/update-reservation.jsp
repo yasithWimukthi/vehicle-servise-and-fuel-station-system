@@ -34,6 +34,9 @@
 	String fuelType = reservation.getFuelType();
 	
 %>
+
+		<jsp:include page="header.jsp"></jsp:include>
+
 	    <div class="main-container">
         <header class="header">
             <form action="LogoutServlet" method="POST">
@@ -66,6 +69,12 @@
                 <ul class="side-nav">
                     <li class="side-nav__item">
                         <a href="#" class="side-nav__link">Delete Reservation</a>
+                    </li>
+                </ul>
+                
+                <ul class="side-nav">
+                    <li class="side-nav__item ">
+                        <a href="#" class="side-nav__link">Update User</a>
                     </li>
                 </ul>
 
@@ -204,6 +213,8 @@
 
         </div>
     </div>
+	
+	 <jsp:include page="footer.jsp"></jsp:include>
 	
 </body>
 </html>

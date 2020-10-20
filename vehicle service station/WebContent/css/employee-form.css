@@ -1,0 +1,35 @@
+	/* 
+	 * H.R. Yasith wimukthi
+ 	 * IT19966922
+	*/ 
+
+@charset "ISO-8859-1";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+  html {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.86), rgba(40, 180, 133, 0.9));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+ }
+
+ form{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-style: oblique;
+   padding: 20px;
+   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+ }

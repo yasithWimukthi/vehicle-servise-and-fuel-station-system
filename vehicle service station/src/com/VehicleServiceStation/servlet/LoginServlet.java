@@ -115,7 +115,6 @@ public class LoginServlet extends HttpServlet {
 			}
 			else if(user.getType().equalsIgnoreCase("user")) {
 				out.println("<script type=\"text/javascript\">");
-				out.println("alert('Successfully logged in user!');");
 				out.println("location='home.jsp';");
 				out.println("</script>");
 			}
@@ -126,7 +125,7 @@ public class LoginServlet extends HttpServlet {
 		else {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('unsuccessfully logged in!');");
-			out.println("location='login.jsp';");
+			out.println("location='index.jsp';");
 			out.println("</script>");
 		}
 		

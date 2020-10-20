@@ -33,6 +33,8 @@ public class Query {
 	
 	public static final String GET_USER_BY_ID = "SELECT * FROM userDetails WHERE userID = ? ;";
 	
+	public static final String UPDATE_USER = "UPDATE userDetails SET fname = ?, lname = ?, email = ?, phoneNo = ? WHERE userID = ? ;" ;
+	
 	/**
 	 * QUERIES FOR RESERVATION DETAILS MANIPULATION
 	 */
@@ -52,4 +54,9 @@ public class Query {
 	 * QUERIES FOR FEEDBACK DETAILS MANIPULATION
 	 */
 	public static final String SAVE_FEEDBACK = "INSERT INTO feedback(name,email,message) VALUES (?,?,?); " ;
+	
+	/**
+	 * QUERIES FOR EMPLOYEE DETAILS MANIPULATION
+	 */
+	public static final String ADD_EMPLOYEE = "INSERT INTO Employee(Fname,Lname,Email,Mobile,DOB,Age,Address,Type,Salary) VALUES(?,?,?,?,?,?,?,?,?) ;" ;
 }

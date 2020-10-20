@@ -153,7 +153,55 @@ public class UserService implements iUserService {
 		
 		return user;
 	}
+
 	
+	/**
+	 * 
+	 * updateUser UPDATES USER DETAILS
+	 * 
+	 * @author Yasith wimukthi
+	 * IT19966922
+	 * 
+	 * @param uid,fname,lname,email,mobile
+	 * 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException e
+	 * 
+	 * @return boolean
+	 * 
+	 */
+
+	@Override
+	public boolean updateUser(String uid, String fname, String lname, String email, String mobile) {
+		// TODO Auto-generated method stub
+		try {
+			
+			conn = DBConnectionUtil.getConnection();
+			
+			String sql = Query.UPDATE_USER;
+			
+			preparedStatement = conn.prepareStatement(sql);
+			
+			preparedStatement.setString(QueryConstants.COLUMN_ONE, fname);
+			preparedStatement.setString(QueryConstants.COLUMN_TWO, lname);
+			preparedStatement.setString(QueryConstants.COLUMN_THREE, email);
+			preparedStatement.setString(QueryConstants.COLUMN_FOUR, mobile);
+			preparedStatement.setString(QueryConstants.COLUMN_FIVE, uid);
+			
+			preparedStatement.execute();
+		}
+		catch (SQLException | ClassNotFoundException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			logger.log(Level.SEVERE, e.getMessage());
+			return false;
+		}
+		finally {
+			//CLOSE CONNECTION
+			DBConnectionUtil.closeConnection(preparedStatement, conn);
+		}
+		return true;
+	}
 	
 	
 	

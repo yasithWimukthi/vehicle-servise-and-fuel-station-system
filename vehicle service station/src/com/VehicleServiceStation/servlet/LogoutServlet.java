@@ -54,7 +54,7 @@ public class LogoutServlet extends HttpServlet {
 		session.invalidate();
 				
 		/** DIRECT TO THE login.jsp PAGE*/
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 		
 		doGet(request, response);

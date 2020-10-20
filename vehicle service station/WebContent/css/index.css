@@ -1,0 +1,55 @@
+	/* 
+	 * H.R. Yasith wimukthi
+ 	 * IT19966922
+	*/ 
+
+
+@charset "ISO-8859-1";
+
+body{
+    background-color: #333;
+    color: white;
+}
+.navbar{
+    border-bottom: #008ed6 3px solid;
+    opacity: 0.8;
+}
+
+#home-section{
+    background-image: url(car.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    min-height: 700px;
+}
+
+#home-section .dark-overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+}
+
+#home-section .home-inner{
+    padding-top: 150px;
+}
+
+#home-section .card-form{
+    opacity: 0.8;
+}
+
+#home-section .fas, #create-section .fas{
+    background-color: #fff;
+    color: #008ed6;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#explore-section .fas, #share-section .fas{
+    color: white;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 5px;
+}

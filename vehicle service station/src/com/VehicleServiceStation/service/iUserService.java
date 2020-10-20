@@ -35,4 +35,13 @@ public interface iUserService {
 	 * @return User object
 	 */
 	public User getUserByID(String uid);
+	
+	/**
+	 * RETURN USER OBJECT FOR GIVEN USER ID
+	 * 
+	 * @param uid,fname,lname,email,mobile
+	 * @return boolean
+	 */
+	
+	public boolean updateUser(String uid, String fname, String lname, String email, String mobile);
 }

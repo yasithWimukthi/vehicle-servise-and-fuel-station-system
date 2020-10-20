@@ -21,14 +21,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.VehicleServiceStation.service.iFeedbackService;
 
 
-public class DBConnectionUtil extends DBConnProperty {
+public class DBConnectionUtil  {
 	
 	/**
 	 * USED SIGLETON DESIGN PATTERN
 	 */
 	private static Connection conn;
+	public static final Logger logger = Logger.getLogger(iFeedbackService.class.getName());
 	
 	private DBConnectionUtil() {
 		
