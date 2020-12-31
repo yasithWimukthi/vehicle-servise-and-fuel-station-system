@@ -43,7 +43,7 @@ public class DBConnXML extends DBConnProperty {
 		Element element = null;
 		
 		nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + 
-				"\\wtpwebapps\\echannelling\\WEB-INF\\QueryXML.xml" )).getElementsByTagName(QueryConstants.TAG_NAME);
+				"" )).getElementsByTagName(QueryConstants.TAG_NAME);
 		
 		
 		/**
